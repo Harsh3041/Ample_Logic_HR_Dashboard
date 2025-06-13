@@ -18,7 +18,7 @@ import {trigger, transition,style, animate } from '@angular/animations';
 //This is the main dahsboard component which contains the metrics, employee list, and recruitment chart.
 export class DashboardComponent {
 
-
+// This is the search term for searching employees.
    searchTerm = '';
 
   // sample data for Total Employees, Departments, and Recruits
@@ -34,6 +34,7 @@ export class DashboardComponent {
     department: ['Engineering', 'HR', 'Marketing', 'Finance'][i % 4]
   }));
 
+  // This pagedEmployees conatains the employees to be displayed on the page. Whatever the page size is set to, it will display that many employees and slice is used to limit the number of employees displayed on the page.
   pagedEmployees = this.employees.slice(0, 5);
   pageSize = 5;
 
@@ -44,16 +45,18 @@ export class DashboardComponent {
     this.pagedEmployees = this.employees.slice(start, end);
   }
 
-  // This is the recruitment chart data
+  // This is the recruitment chart data for charts ngchartsmodule is used to display the chart.
   recruitmentMonths = ['Jan', 'Feb', 'Mar', 'Apr'];
   recruitmentData = [
     { data: [3, 5, 2, 4], label: 'Recruits' }
   ];
 
+  // This is used to set the chart options for the recruitment chart.
   chartOptions = {
     responsive: true
   };
 
+  // This is the filteredEmployees which will be used to filter the employees based on the search term and display them on the page.
 filteredEmployees = this.employees;
 
 
