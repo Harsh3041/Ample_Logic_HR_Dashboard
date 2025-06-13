@@ -1,0 +1,69 @@
+import { Component } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import {trigger, transition,style, animate } from '@angular/animations';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('600ms ease-in', style({ opacity: 1 }))
+      ])
+    ])
+  ]
+})
+//This is the main dahsboard component which contains the metrics, employee list, and recruitment chart.
+export class DashboardComponent {
+
+
+   searchTerm = '';
+
+  // sample data for Total Employees, Departments, and Recruits
+  cardData = [
+  { title: 'Total Employees', value: 60, icon: 'people' },
+  { title: 'Total Departments', value: 6, icon: 'apartment' },
+  { title: 'Total Recruits', value: 12, icon: 'person_add' }
+];
+
+  // Sample data for employee list
+  employees = Array.from({ length: 58 }).map((_, i) => ({
+    name: `Employee ${i + 1}`,
+    department: ['Engineering', 'HR', 'Marketing', 'Finance'][i % 4]
+  }));
+
+  pagedEmployees = this.employees.slice(0, 5);
+  pageSize = 5;
+
+  // Method responsible for handling pagination
+  PaginationAcc(event: PageEvent) {
+    const start = event.pageIndex * event.pageSize;
+    const end = start + event.pageSize;
+    this.pagedEmployees = this.employees.slice(start, end);
+  }
+
+  // This is the recruitment chart data
+  recruitmentMonths = ['Jan', 'Feb', 'Mar', 'Apr'];
+  recruitmentData = [
+    { data: [3, 5, 2, 4], label: 'Recruits' }
+  ];
+
+  chartOptions = {
+    responsive: true
+  };
+
+filteredEmployees = this.employees;
+
+
+// Method to handle search functionality
+filterEmployees() {
+  const term = this.searchTerm.toLowerCase();
+  this.filteredEmployees = this.employees.filter(emp =>
+    emp.name.toLowerCase().includes(term) ||
+    emp.department.toLowerCase().includes(term)
+  );
+  this.pagedEmployees = this.filteredEmployees.slice(0, this.pageSize);
+}
+}

@@ -1,0 +1,40 @@
+<!-- <div class="dashboard-grid" [@fadeIn]> -->
+  <!-- <div class="card" *ngFor="let metric of metrics">
+    <h4>{{ metric.title }}</h4>
+    <p>{{ metric.value }}</p>
+  </div>  -->
+  <div class="dashboard-kpis">
+  <div class="kpi-card" *ngFor="let metric of cardData">
+    <mat-icon class="kpi-icon">{{ metric.icon }}</mat-icon>
+    <div class="kpi-content">
+      <h3>{{ metric.value }}</h3>
+      <p>{{ metric.title }}</p>
+    </div>
+  </div>
+</div>
+  <div class="employee-list card">
+    <h4>Employee List</h4>
+    <ul>
+      <li *ngFor="let emp of pagedEmployees">{{ emp.name }} - {{ emp.department }}</li>
+    </ul>
+    <mat-paginator [length]="employees.length"
+                   [pageSize]="pageSize"
+                   (page)="PaginationAcc($event)"
+                   color="primary">
+
+    </mat-paginator>
+    <mat-form-field appearance="outline" class="search-field" [class.hide-label]="searchTerm">
+  <mat-label *ngIf="!searchTerm">Search Employee</mat-label>
+  <input matInput [(ngModel)]="searchTerm" (ngModelChange)="filterEmployees()" >
+</mat-form-field>
+  </div>
+  <div class="recruitment-chart card">
+    <h4>Recruitment</h4>
+    <canvas baseChart
+      [datasets]="recruitmentData"
+      [labels]="recruitmentMonths"
+      [options]="chartOptions"
+      chartType="bar">
+    </canvas>
+  </div>
+<!-- </div> -->

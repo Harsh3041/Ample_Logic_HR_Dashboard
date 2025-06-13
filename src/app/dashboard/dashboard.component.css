@@ -1,0 +1,88 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  h4 {
+    font-size: 1.2rem;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0f172a;
+  }
+}
+
+
+.employee-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.employee-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+mat-paginator {
+  margin-top: 1rem;
+}
+
+.dashboard-kpis {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.kpi-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.kpi-icon {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-right: 1rem;
+}
+.search-field {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.recruitment-chart {
+  padding: 1rem 1rem 2rem 1rem;
+}
+.recruitment-chart h4 {
+  margin-bottom: 1rem;
+}
+.employee-table {
+  width: 100%;
+  margin-top: 1rem;
+}
+.employee-table th, .employee-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.employee-table th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+.hide-label-on-hover:hover .mat-form-field-label {
+  display: none;
+}
