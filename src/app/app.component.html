@@ -1,3 +1,6 @@
+<router-outlet *ngIf="navigateToLogin()"></router-outlet>
+
+<ng-container *ngIf="!navigateToLogin()">
 <app-navbar></app-navbar>
 <div class="layout-wrapper">
   <app-sidebar></app-sidebar>
@@ -6,3 +9,4 @@
   </main>
 </div>
 <app-footer></app-footer>
+</ng-container>

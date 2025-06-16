@@ -1,0 +1,65 @@
+/* Center the card on the screen */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #74ebd5, #acb6e5); /* gradient background */
+}
+
+/* Card styling */
+mat-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+/* Title */
+mat-card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Full width input fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+button + button {
+  margin-top: 0.5rem;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+mat-form-field.mat-focused mat-label {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s ease-in-out;
+}
+::ng-deep mat-form-field.mat-focused .mat-form-field-required-marker {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s ease-in-out;
+}
+
